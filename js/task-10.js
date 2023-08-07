@@ -18,8 +18,9 @@ function createBoxes(amount) {
       div.style.width = `30px`;
       div.style.height = `30px`;
     } else {
-      div.style.width = `${3 + i}0px`;
-      div.style.height = `${3 + i}0px`;
+      // if (boxes.children.length !== 0) {
+      div.style.width = `${3 + boxes.children.length}0px`;
+      div.style.height = `${3 + boxes.children.length}0px`;
     }
     div.style.backgroundColor = getRandomHexColor();
     boxes.append(div);
@@ -28,6 +29,7 @@ function createBoxes(amount) {
 
 function destroyBoxes() {
   boxes.innerHTML = '';
+  numberInput.value = '';
 }
 
 function getRandomHexColor() {

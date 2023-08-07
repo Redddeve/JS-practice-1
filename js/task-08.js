@@ -4,9 +4,7 @@ loginForm.addEventListener('submit', onSubmit);
 
 function onSubmit(event) {
   event.preventDefault();
-  const {
-    elements: { email, password },
-  } = event.currentTarget;
+  const { email, password } = event.currentTarget.elements;
   const loginData = {
     email: email.value,
     password: password.value,
@@ -14,9 +12,12 @@ function onSubmit(event) {
 
   if (email.value === '' || password.value === '') {
     alert('All fields must be filled!');
+  } else {
+    event.currentTarget.reset();
+    return console.log(loginData);
   }
-
-  //   console.log(event.currentTarget.elements);
-  console.log(loginData);
-  event.currentTarget.reset();
+  // if (email.value !== '' && password.value !== '') {
+  //   console.log(loginData);
+  //   event.currentTarget.reset();
+  // }
 }
